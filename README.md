@@ -10,8 +10,10 @@ A Business Layer with some logic - not just a simple CRUD application
 Unit tests, which exercise the normal functionality, boundary and error conditions.
 ## Sprint Breakdowns
 ### Sprint 1
+#### Sprint Review
 By the end of Sprint one I had aimed to have my database completed and populated with faux data, some nUnit tests created and their methods extracted and a very simplistic GUI. I underestimated the length of time it would take to structure the database so by the end of the sprint I hadn't manage to populate the database, however the database had been created, some CRUD functions had been extracted from the nUnit tests and the GUI would possibly list the tab list if the tab list was populated.
-
+#### Sprint Retrospective
+Heading forward, I will base the Sprint backlog on the time I estimate it to take instead of what tasks I want to complete.
 #### Goals
 - [ ] User Story 0.1
 - [x] User Story 0.2
@@ -19,7 +21,7 @@ By the end of Sprint one I had aimed to have my database completed and populated
 - [x] Update readme.md - project goals
 - [x] Git init commit
 #### Sprint Start
-![](ReadmeImages/Sprint1Start.png)
+![](Sprint1Start.png)
 
 ##### Sprint End
-![](ReadmeImages/Sprint1End.png)
+![](Sprint1End.png)
