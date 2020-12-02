@@ -45,10 +45,24 @@ namespace MusicManagerTESTS
             using (var db = new MusicManagerContext())
             {
                 int initialusercount = db.Users.Count();
-                _crudManager.AddUser("Padge", "Padge");
-                Assert.AreEqual(initialusercount + 1, db.Users.Count());
+                string returnMessage = _crudManager.AddUser("Padge", "Padge");
+                Assert.AreEqual(db.Users.Count(), initialusercount + 1);
+                Assert.AreEqual(returnMessage, "User Successfully Created");
             }
         }
+
+        [Test]
+        public void CannotAddAUserWhenUsernameAlreadyInUse()
+        {
+            using (var db = new MusicManagerContext())
+            {
+                int initialusercount = db.Users.Count();
+                string returnMessage = _crudManager.AddUser("Noodle", "noodle");
+                Assert.AreEqual(initialusercount, db.Users.Count());
+                Assert.AreEqual(returnMessage, "This username is already in use");
+            }
+        }
+
 
         [Test]
         public void NewTabAddedToUser()

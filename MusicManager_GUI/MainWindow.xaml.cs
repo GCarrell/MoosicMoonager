@@ -21,16 +21,40 @@ namespace MusicManager_GUI
     /// </summary>
     public partial class MainWindow : Window
     {
-        CRUDManager _crudManager = new CRUDManager();
+
         public MainWindow()
         {
             InitializeComponent();
-            PopulateListBox();
+            LandingPage landingPage = new LandingPage();
+            PageDisplayFrame.NavigationService.Navigate(landingPage);
+        }
+        private void ButtonSelectLandingPage(object sender, RoutedEventArgs e)
+        {
+
+            LandingPage landingPage = new LandingPage();
+            PageDisplayFrame.NavigationService.Navigate(landingPage);
         }
 
-        private void PopulateListBox()
+        private void ButtonSelectLoginPage(object sender, RoutedEventArgs e)
         {
-            TabList.ItemsSource = _crudManager.RetrieveAllTabs();
+
+            LoginPage loginPage = new LoginPage();
+            PageDisplayFrame.NavigationService.Navigate(loginPage);
         }
+        protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
+        {
+            base.OnMouseLeftButtonDown(e);
+
+            this.DragMove();
+        }
+        private void CloseWindow_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+        private void WindowMinus_Click(object sender, RoutedEventArgs e)
+        {
+            WindowState = WindowState.Minimized;
+        }
+
     }
 }

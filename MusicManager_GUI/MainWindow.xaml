@@ -5,9 +5,43 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MusicManager_GUI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="600">
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"        
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        Title="MainWindow" Height="450" Width="600" WindowStyle="None" WindowStartupLocation="CenterScreen" ResizeMode="CanResizeWithGrip" AllowsTransparency="True" >
+
     <Grid>
-        <ListBox Name="TabList"/>
+        <Grid VerticalAlignment="Top" Height="30">
+            <Button x:Name="CloseWindow" HorizontalAlignment="Right" Width="20" Height="20"  Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Center" Click="CloseWindow_Click">
+                <materialDesign:PackIcon Kind="Power" Width="20" Height="20" Foreground="White"/>
+            </Button>
+            <Button x:Name="WindowMinus" HorizontalAlignment="Left" Width="20" Height="20"  Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Click="WindowMinus_Click">
+                <materialDesign:PackIcon Kind="Minus" Width="20" Height="20" Foreground="White"/>
+            </Button>
+        </Grid>
+        <Grid Margin="0,20,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.5*"/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <StackPanel>
+                <Button Content="Login/Create Account"  Click="ButtonSelectLoginPage"/>
+                <Button Content="Tabs" Click="ButtonSelectLandingPage"/>
+                <Button Content="Favourites" IsHitTestVisible="False" Opacity="0.5"/>
+                <Button Content="Upload" IsHitTestVisible="False" Opacity="0.5"/>
+                <Button Content="Account" IsHitTestVisible="False" Opacity="0.5"/>
+            </StackPanel>
+            
+            <Frame Name="PageDisplayFrame" Source="LandingPage" Grid.Column="1" Grid.ColumnSpan="3" NavigationUIVisibility="Hidden"/>
+        </Grid>
+        
 
     </Grid>
 </Window>

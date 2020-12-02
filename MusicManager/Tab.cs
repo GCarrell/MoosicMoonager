@@ -15,5 +15,10 @@ namespace MusicManager
         public int TabCreator { get; set; }
 
         public virtual User TabCreatorNavigation { get; set; }
+
+        public override string ToString()
+        {
+            return $"{TabName} {Instrument}";
+        }
     }
 }
