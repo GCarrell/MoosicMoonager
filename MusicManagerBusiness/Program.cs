@@ -7,17 +7,44 @@ namespace MusicManagerBusiness
 {
     public class CRUDManager
     {
-        public void AddUser(string userName, string password)
+        private User _user;
+        private Tab _tab;
+
+        public Tab Tab
+        {
+            get { return _tab; }
+            set { _tab = value; }
+        }
+
+        public User User
+        {
+            get { return _user; }
+            set { _user = value; }
+        }
+
+        public string AddUser(string userName, string password)
         {
             using (var db = new MusicManagerContext())
             {
-                var newUser = new User
+                var findUser =
+                    db.Users.Where(c => c.UserName == userName);
+                if (findUser.Count() > 0)
                 {
-                    UserName = userName,
-                    Password = password,
-                };
-                db.Users.Add(newUser);
-                db.SaveChanges();
+                    return "This username is already in use";
+                }
+
+                else
+                {
+                    var newUser = new User
+                    {
+                        UserName = userName,
+                        Password = password,
+                    };
+                    db.Users.Add(newUser);
+                    db.SaveChanges();
+                    return "User Successfully Created";
+                }
+                
             }
         }
 
@@ -52,8 +79,21 @@ namespace MusicManagerBusiness
                 return db.Tabs.Where(c => c.Instrument == "Guitar").ToList();
             }
         }
-
-                static void Main(string[] args)
+        public List<Tab> RetrieveBassTabs()
+        {
+            using (var db = new MusicManagerContext())
+            {
+                return db.Tabs.Where(c => c.Instrument == "Bass").ToList();
+            }
+        }
+        public List<Tab> RetrieveDrumTabs()
+        {
+            using (var db = new MusicManagerContext())
+            {
+                return db.Tabs.Where(c => c.Instrument == "Drums").ToList();
+            }
+        }
+        static void Main(string[] args)
         {
         }
     }
