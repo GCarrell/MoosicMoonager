@@ -19,19 +19,49 @@ namespace MusicManager_GUI
     /// </summary>
     public partial class LoginPage : Page
     {
-        CRUDManager _crudManager = new CRUDManager();
-        public LoginPage()
+        CRUDManager crudManager;
+        public LoginPage(CRUDManager managerOfCrud)
         {
+            crudManager = managerOfCrud;
             InitializeComponent();
         }
 
         private void ButtonUserLogIn(object sender, RoutedEventArgs e)
         {
+            var loginResult = crudManager.Login(UserNameTextInput.Text as string, PasswordTextInput.Text as string);
+            if (loginResult.passOrFail == "pass")
+            {
+                ReturnMessageTextbox.Text += loginResult.returnMessage;
 
+                var window = (MainWindow)Application.Current.MainWindow;
+                window.FavouritesPageButton.Opacity = 1;
+                window.FavouritesPageButton.IsHitTestVisible = true;
+                window.UploadPageButton.Opacity = 1;
+                window.UploadPageButton.IsHitTestVisible = true;
+                window.AccountPageButton.Opacity = 1;
+                window.AccountPageButton.IsHitTestVisible = true;
+                LoginButton.Opacity = 0.5;
+                LoginButton.IsHitTestVisible = false;
+                CreateAccountButton.Opacity = 0.5;
+                CreateAccountButton.IsHitTestVisible = false;
+            }
+            else
+            {
+                ReturnMessageTextbox.Text = loginResult.returnMessage;
+            }
         }
         private void ButtonUserCreate(object sender, RoutedEventArgs e)
         {
-            string creationDisplayMessage = _crudManager.AddUser(UserNameTextInput.Text as string, PasswordTextInput.Text as string);
+            var creationResult = crudManager.AddUser(UserNameTextInput.Text as string, PasswordTextInput.Text as string);
+            if (creationResult.passOrFail == "pass")
+            {
+                ReturnMessageTextbox.Text = creationResult.returnMessage + " ";
+                ButtonUserLogIn(sender, e);
+            }
+            else
+            {
+                ReturnMessageTextbox.Text = creationResult.returnMessage;
+            }
         }
     }
 }

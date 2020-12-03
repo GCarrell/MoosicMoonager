@@ -11,14 +11,15 @@
     <Grid Background="{StaticResource MaterialDesignDarkBackground}">
         <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
             <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" TextBlock.TextAlignment="Center">
-                <TextBox IsReadOnly="True" Text="Log In"/>
-                <Border Margin="50" Padding="15,50,15,15" Width="400" CornerRadius="10" Background="{StaticResource MaterialDesignLightBackground}">
+                
+                <Border Margin="25" Padding="15,15,15,15" Width="400" CornerRadius="10" Background="{StaticResource MaterialDesignLightBackground}">
                     <StackPanel>
-                        
+                        <TextBox IsReadOnly="True" Text="Log In" FontSize="20" FontWeight="Heavy" Margin="0,0,0,10"/>
+                        <TextBox IsReadOnly="True" Name="ReturnMessageTextbox" Text="" FontSize="15"  Margin="0,0,0,0" Foreground="Red"/>
                         <TextBox Name="UserNameTextInput" BorderThickness="0.1" Margin="0,0,0,5" BorderBrush="{StaticResource MaterialDesignLightForeground}" Text=""/>
                         <TextBox Name="PasswordTextInput" BorderThickness="0.1" BorderBrush="{StaticResource MaterialDesignLightForeground}" Margin="0,0,0,5"/>
-                        <Button Content="Login" Click="ButtonUserLogIn" Margin="0,0,0,5"/>
-                        <Button Content="Create Account" Click="ButtonUserCreate"/>
+                        <Button Name="LoginButton" Content="Login" Click="ButtonUserLogIn" Margin="0,0,0,5"/>
+                        <Button Name="CreateAccountButton" Content="Create Account" Click="ButtonUserCreate"/>
                         
                     </StackPanel>
                     

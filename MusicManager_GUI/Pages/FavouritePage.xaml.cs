@@ -12,41 +12,23 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MusicManagerBusiness;
 
-namespace MusicManager_GUI
+namespace MusicManager_GUI.Pages
 {
     /// <summary>
-    /// Interaction logic for LandingPage.xaml
+    /// Interaction logic for FavouritePage.xaml
     /// </summary>
-    public partial class LandingPage : Page
+    public partial class FavouritePage : Page
     {
         CRUDManager crudManager;
-        public LandingPage( CRUDManager managerOfCrud)
+        public FavouritePage(CRUDManager managerOfCrud)
         {
             crudManager = managerOfCrud;
-            InitializeComponent();
+            InitializeComponent(); 
             PopulateListBox();
         }
         private void PopulateListBox()
         {
-            TabList.ItemsSource = crudManager.RetrieveAllTabs();
-        }
-        private void ListSorter(object sender, RoutedEventArgs e)
-        {
-            switch ((sender as Button).Tag)
-            {
-                case "Bass":
-                    TabList.ItemsSource = crudManager.RetrieveBassTabs();
-                    break;
-                case "Drums":
-                    TabList.ItemsSource = crudManager.RetrieveDrumTabs();
-                    break;
-                case "Guitar":
-                    TabList.ItemsSource = crudManager.RetrieveGuitarTabs();
-                    break;
-                case "Reset":
-                    PopulateListBox();
-                    break;
-            }
+            TabList.ItemsSource = crudManager.RetrieveAllFavouriteTabs();
         }
         private void TabList_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {

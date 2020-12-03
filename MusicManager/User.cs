@@ -9,6 +9,8 @@ namespace MusicManager
     {
         public User()
         {
+            Favourites = new HashSet<Favourite>();
+            Ratings = new HashSet<Rating>();
             Tabs = new HashSet<Tab>();
         }
 
@@ -16,6 +18,8 @@ namespace MusicManager
         public string UserName { get; set; }
         public string Password { get; set; }
 
+        public virtual ICollection<Favourite> Favourites { get; set; }
+        public virtual ICollection<Rating> Ratings { get; set; }
         public virtual ICollection<Tab> Tabs { get; set; }
     }
 }

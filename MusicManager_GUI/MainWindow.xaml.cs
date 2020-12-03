@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MusicManager_GUI.Pages;
 using MusicManagerBusiness;
 
 namespace MusicManager_GUI
@@ -21,26 +22,42 @@ namespace MusicManager_GUI
     /// </summary>
     public partial class MainWindow : Window
     {
-
+        CRUDManager crudManager = new CRUDManager();
         public MainWindow()
         {
             InitializeComponent();
-            LandingPage landingPage = new LandingPage();
-            PageDisplayFrame.NavigationService.Navigate(landingPage);
-        }
-        private void ButtonSelectLandingPage(object sender, RoutedEventArgs e)
-        {
-
-            LandingPage landingPage = new LandingPage();
+            LandingPage landingPage = new LandingPage(crudManager);
             PageDisplayFrame.NavigationService.Navigate(landingPage);
         }
 
-        private void ButtonSelectLoginPage(object sender, RoutedEventArgs e)
-        {
 
-            LoginPage loginPage = new LoginPage();
-            PageDisplayFrame.NavigationService.Navigate(loginPage);
+        private void ChangePage(object sender, RoutedEventArgs e)
+        {
+            switch ((sender as Button).Name)
+            {
+                case "TabPageButton":
+                    LandingPage landingPage = new LandingPage(crudManager);
+                    PageDisplayFrame.NavigationService.Navigate(landingPage);
+                    break;
+                case "LoginPageButton":
+                    LoginPage loginPage = new LoginPage(crudManager);
+                    PageDisplayFrame.NavigationService.Navigate(loginPage);
+                    break;
+                case "FavouritesPageButton":
+                    FavouritePage favouritePage = new FavouritePage(crudManager);
+                    PageDisplayFrame.NavigationService.Navigate(favouritePage);
+                    break;
+                case "AccountPageButton":
+                    AccountPage accountPage = new AccountPage(crudManager);
+                    PageDisplayFrame.NavigationService.Navigate(accountPage);
+                    break;
+                case "UploadPageButton":
+                    UploadPage uploadPage = new UploadPage(crudManager);
+                    PageDisplayFrame.NavigationService.Navigate(uploadPage);
+                    break;
+            }
         }
+
         protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
         {
             base.OnMouseLeftButtonDown(e);
@@ -55,6 +72,5 @@ namespace MusicManager_GUI
         {
             WindowState = WindowState.Minimized;
         }
-
     }
 }

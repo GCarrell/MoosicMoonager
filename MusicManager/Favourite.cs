@@ -7,6 +7,7 @@ namespace MusicManager
 {
     public partial class Favourite
     {
+        public int FavouriteId { get; set; }
         public int TabId { get; set; }
         public int UserId { get; set; }
 

@@ -7,6 +7,12 @@ namespace MusicManager
 {
     public partial class Tab
     {
+        public Tab()
+        {
+            Favourites = new HashSet<Favourite>();
+            Ratings = new HashSet<Rating>();
+        }
+
         public int TabId { get; set; }
         public string TabName { get; set; }
         public string BandName { get; set; }
@@ -15,7 +21,8 @@ namespace MusicManager
         public int TabCreator { get; set; }
 
         public virtual User TabCreatorNavigation { get; set; }
-
+        public virtual ICollection<Favourite> Favourites { get; set; }
+        public virtual ICollection<Rating> Ratings { get; set; }
         public override string ToString()
         {
             return $"{TabName} {Instrument}";

@@ -6,14 +6,14 @@
 
 CREATE TABLE Users	
 (
-	UserId int PRIMARY KEY,
+	UserId int IDENTITY(1, 1) PRIMARY KEY,
 	UserName varchar(16) NOT NULL,
 	Password varchar(16) NOT NULL
 );
 
 CREATE TABLE Tabs 
 (
-	TabId int PRIMARY KEY,
+	TabId int IDENTITY(1, 1) PRIMARY KEY,
 	TabName varchar(48) NOT NULL, 
 	BandName varchar(48) NOT NULL, 
 	Instrument varchar(16) NOT NULL, 

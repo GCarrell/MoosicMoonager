@@ -35,44 +35,38 @@ namespace MusicManager
         {
             modelBuilder.Entity<Favourite>(entity =>
             {
-                entity.HasNoKey();
-
                 entity.HasOne(d => d.Tab)
-                    .WithMany()
+                    .WithMany(p => p.Favourites)
                     .HasForeignKey(d => d.TabId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Favourite__TabId__3A81B327");
+                    .HasConstraintName("FK__Favourite__TabId__70DDC3D8");
 
                 entity.HasOne(d => d.User)
-                    .WithMany()
+                    .WithMany(p => p.Favourites)
                     .HasForeignKey(d => d.UserId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Favourite__UserI__3B75D760");
+                    .HasConstraintName("FK__Favourite__UserI__6FE99F9F");
             });
 
             modelBuilder.Entity<Rating>(entity =>
             {
-                entity.HasNoKey();
-
                 entity.Property(e => e.Rating1).HasColumnName("Rating");
 
                 entity.HasOne(d => d.Tab)
-                    .WithMany()
+                    .WithMany(p => p.Ratings)
                     .HasForeignKey(d => d.TabId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Ratings__TabId__3D5E1FD2");
+                    .HasConstraintName("FK__Ratings__TabId__72C60C4A");
 
                 entity.HasOne(d => d.User)
-                    .WithMany()
+                    .WithMany(p => p.Ratings)
                     .HasForeignKey(d => d.UserId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Ratings__UserId__3E52440B");
+                    .HasConstraintName("FK__Ratings__UserId__71D1E811");
             });
 
             modelBuilder.Entity<Tab>(entity =>
             {
-                entity.Property(e => e.TabId).ValueGeneratedNever();
-
                 entity.Property(e => e.BandName)
                     .IsRequired()
                     .HasMaxLength(48)
@@ -97,13 +91,11 @@ namespace MusicManager
                     .WithMany(p => p.Tabs)
                     .HasForeignKey(d => d.TabCreator)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK__Tabs__TabCreator__38996AB5");
+                    .HasConstraintName("FK__Tabs__TabCreator__619B8048");
             });
 
             modelBuilder.Entity<User>(entity =>
             {
-                entity.Property(e => e.UserId).ValueGeneratedNever();
-
                 entity.Property(e => e.Password)
                     .IsRequired()
                     .HasMaxLength(16)

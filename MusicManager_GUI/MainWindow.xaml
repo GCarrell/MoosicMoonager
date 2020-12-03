@@ -32,16 +32,13 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <StackPanel>
-                <Button Content="Login/Create Account"  Click="ButtonSelectLoginPage"/>
-                <Button Content="Tabs" Click="ButtonSelectLandingPage"/>
-                <Button Content="Favourites" IsHitTestVisible="False" Opacity="0.5"/>
-                <Button Content="Upload" IsHitTestVisible="False" Opacity="0.5"/>
-                <Button Content="Account" IsHitTestVisible="False" Opacity="0.5"/>
+                <Button Name="LoginPageButton" Content="Login/Create Account"  Click="ChangePage"/>
+                <Button Name="TabPageButton" Content="Tabs" Click="ChangePage"/>
+                <Button Name="FavouritesPageButton" Click="ChangePage" Content="Favourites" IsHitTestVisible="False" Opacity="0.5"/>
+                <Button Name="UploadPageButton" Click="ChangePage" Content="Upload" IsHitTestVisible="False" Opacity="0.5"/>
+                <Button Name="AccountPageButton" Click="ChangePage" Content="Account" IsHitTestVisible="False" Opacity="0.5"/>
             </StackPanel>
-            
             <Frame Name="PageDisplayFrame" Source="LandingPage" Grid.Column="1" Grid.ColumnSpan="3" NavigationUIVisibility="Hidden"/>
         </Grid>
-        
-
     </Grid>
 </Window>

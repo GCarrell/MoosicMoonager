@@ -9,6 +9,12 @@
       Title="TabInformation" Background="{StaticResource MaterialDesignDarkBackground}">
 
     <Grid>
-        
+        <TextBox Name="NameTextBox" HorizontalAlignment="Left" Margin="120,90,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox Name="ArtistTextBox" HorizontalAlignment="Left" Margin="120,175,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox Name="CreatorTextBox" HorizontalAlignment="Left" Margin="380,90,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox Name="DownloadLinkTextBox" HorizontalAlignment="Left" Margin="380,175,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button Name="AddToFavouritesButton" Click="AddToFavouritesButton_Click" Content="Add to Favourites" HorizontalAlignment="Left" Margin="170,295,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="ReturnTextDisplay" HorizontalAlignment="Left" Margin="185,260,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+
     </Grid>
 </Page>
