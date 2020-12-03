@@ -36,7 +36,7 @@ At the end of Sprint 2 I had successfully populated my database with faux data. 
 
 #### Sprint Retrospective
 This Sprint went a lot smoother than Sprint 1, however it came apparent that some of my user stories were extremely interlinked and dependent on eachother, so from now on I should be more cautious in regards to task dependencies when planning the Spring Backlog. In terms of time management I believe I estimated the length of my tasks well and so will not have much runover into the next day.
-####
+#### Goals
 - [x] User Story 0.1
 - [x] User Story 0.1.1
 - [x] User Story 0.3
@@ -52,3 +52,30 @@ This Sprint went a lot smoother than Sprint 1, however it came apparent that som
 
 #### Sprint End
 ![](Sprint2End.png)
+
+
+### Sprint 3
+#### Sprint Review
+This sprint added a lot of functionality to the program, the ability for a a user account to be created and for a user to logon was added, input validation was added to these to prevent empty strings being passed or duplicate accounts being created.  The ability for a logged in user to add a tab to their favourites and then later  view a list of their favourite tabs was added. Currently all of the nUnit tests are completely broken as the return types of the methods have been changed. 
+
+#### Sprint Retrospective
+At the end of the third sprint I had successfully completed all the sprint goals. A large roadbump appeared early on during the account creation testing, my EF code tried to insert the new account in at row 0, over the top of another entry. This was due to not setting IDENTITY on the UserId, this was eventually rectified using T-SQL to edit the table definitions and then the database was scaffolded. Apart from this I believe the sprint backlog was well chosen in regards to time. Planning the backlog with consideration of depencies resulted in a much smoother workflow and less jumping between different user stories. 
+
+### Goals
+- [x] Account Creation Validation
+- [x] User Can Login
+- [x] Account Creation
+- [x] Tab Upload
+- [x] Selecting Tab Changes Page
+- [x] Favourite Tabs 
+- [x] Update readme.md
+- [x] Include User Story titles in readme
+- [x] Git commit
+
+#### Sprint Start
+![](Sprint3Start.png)
+
+
+#### Sprint End
+![](Sprint3End.png)
+
