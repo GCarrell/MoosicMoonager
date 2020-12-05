@@ -41,8 +41,48 @@ namespace MusicManagerBusiness
                 return tabCreator;
             }
         }
+        public string LikeDislikeTab(int rating)
+        {
+            using (var db = new MusicManagerContext())
+            {
+                var findExistingLike = db.Ratings.Where(c => c.UserId == User.UserId && c.TabId == CurrentTab.TabId).FirstOrDefault();
 
-        public string AddTabToFavourites()
+                if (findExistingLike is null)
+                {
+                    var newRating = new Rating
+                    {
+                        TabId = CurrentTab.TabId,
+                        UserId = User.UserId,
+                        Rating1 = rating
+                    };
+                    db.Ratings.Add(newRating);
+                    db.SaveChanges();
+                    switch (rating)
+                    {
+                        case 0:
+                            return "disliked";
+                        case 100:
+                            return "liked";
+                    }
+                }
+                if (findExistingLike.Rating1 != rating)
+                {
+                    findExistingLike.Rating1 = rating;
+                    db.SaveChanges();
+                    switch (rating)
+                    {
+                        case 0:
+                            return "disliked";
+                        case 100:
+                            return "liked";
+                    }
+                }             
+                return "failed";
+            }
+        }
+
+
+        public (string, string) AddTabToFavourites()
         {
             using (var db = new MusicManagerContext())
             {
@@ -56,10 +96,10 @@ namespace MusicManagerBusiness
                     };
                     db.Favourites.Add(newFavourite);
                     db.SaveChanges();
-                    return "Tab added to favourites";
+                    return ("Tab added to favourites", "pass");
                 }
                 
-                return "You have already added this tab to your favourites.";
+                return ("You have already added this tab to your favourites.", "fail");
             }
         }
 
@@ -208,6 +248,13 @@ namespace MusicManagerBusiness
                 return db.Tabs.ToList();
             }
         }
+        public List<Tab> RetrieveUserTabs()
+        {
+            using (var db = new MusicManagerContext())
+            {
+                return db.Tabs.Where(c => c.TabCreator == User.UserId).ToList();
+            }
+        }
         public List<Tab> RetrieveAllFavouriteTabs()
         {
             using (var db = new MusicManagerContext())
@@ -222,6 +269,42 @@ namespace MusicManagerBusiness
                     select t).ToList() /*as List<Tab>*/ ;
                 
                 return favouriteList;
+            }
+        }
+        public string RetrieveTabRating()
+        {
+            using (var db = new MusicManagerContext())
+            {
+                var tabRating = db.Ratings.Where(c => c.TabId == CurrentTab.TabId);
+                if (tabRating.Count() > 0)
+                {
+                    var averageRating = tabRating.Average(c => c.Rating1);
+                    return $"{(Math.Round(averageRating, 0)).ToString()}%";
+                }
+                return "Not yet rated";
+            }
+        }
+        public void DeleteFavouriteTab()
+        {
+            using (var db = new MusicManagerContext())
+            {
+                var faveForDeletion = db.Favourites.Where(c => c.TabId == CurrentTab.TabId && c.UserId == User.UserId);
+                db.Favourites.RemoveRange(faveForDeletion);
+                db.SaveChanges();
+            }
+        }
+
+        public void DeleteTab()
+        {
+            using (var db = new MusicManagerContext())
+            {
+                var listOfAssosciatedLikes = db.Ratings.Where(c => c.TabId == CurrentTab.TabId);
+                db.Ratings.RemoveRange(listOfAssosciatedLikes);
+                var listOfAssosciatedFavourites = db.Favourites.Where(c => c.TabId == CurrentTab.TabId);
+                db.Favourites.RemoveRange(listOfAssosciatedFavourites);
+                var theTab = db.Tabs.Where(c => c.TabId == CurrentTab.TabId && c.TabCreator == User.UserId);
+                db.Tabs.RemoveRange(theTab);
+                db.SaveChanges();
             }
         }
         public List<Tab> RetrieveGuitarTabs()

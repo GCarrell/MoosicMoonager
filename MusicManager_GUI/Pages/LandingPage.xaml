@@ -5,23 +5,55 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:MusicManager_GUI"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="600"
-      Title="LandingPage" Background="{StaticResource MaterialDesignDarkBackground}">
+      d:DesignHeight="450" d:DesignWidth="450"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignDarkForeground}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"        
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+      Title="LandingPage">
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0.5*"/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-
-
+            <ColumnDefinition Width="1.3*"/>
+            <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <ListBox Name="TabList" Grid.Column="1" Control.MouseDoubleClick="TabList_MouseDoubleClick">
-        </ListBox>
-        <Button Content="Drums" Tag="Drums" Grid.Column="3" HorizontalAlignment="Left" Margin="35,99,0,0" VerticalAlignment="Top" Click="ListSorter"/>
-        <Button Content="Bass" Tag="Bass" Grid.Column="3" HorizontalAlignment="Center" Margin="0,149,0,0" VerticalAlignment="Top" Click="ListSorter"/>
-        <Button Content="Guitar" Tag="Guitar" Grid.Column="3" HorizontalAlignment="Left" Margin="75,199,0,0" VerticalAlignment="Top" Click="ListSorter"/>
-        <Button Content="Reset" Tag="Reset" Grid.Column="3" HorizontalAlignment="Left" Margin="75,274,0,0" VerticalAlignment="Top" Click="ListSorter"/>
+        <ScrollViewer VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Auto">
+            <StackPanel Grid.Column="0" Margin="10,10,10,10">
+                <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" >
+                    <Button Name="ResetButton" Content="All" BorderBrush="AliceBlue" Click="ListSorter" Margin="0,0,0,0" FontSize="12" Style="{DynamicResource MaterialDesignOutlinedButton}" Foreground="White"></Button>
+                    <Button Name="GuitarButton" Content="Guitar" BorderBrush="DimGray" Click="ListSorter" Margin="0,0,0,0" FontSize="12" Style="{StaticResource MaterialDesignOutlinedButton}" Foreground="White"></Button>
+                    <Button Name="DrumsButton" Content="Drums" BorderBrush="DimGray" Click="ListSorter" Margin="0,0,0,0" FontSize="12" Style="{StaticResource MaterialDesignOutlinedButton}" Foreground="White"></Button>
+                    <Button Name="BassButton" Content="Bass" BorderBrush="DimGray" Click="ListSorter" FontSize="12" Style="{StaticResource MaterialDesignOutlinedButton}" Foreground="White"></Button>
+                </StackPanel>
+                <ListBox Name="TabList"  SelectionChanged="TabList_SelectionChanged"></ListBox>
+            </StackPanel>
+        </ScrollViewer>
+
+        <Border Grid.Column="1" Margin="0,10,5,10" Padding="15,0,15,15" Width="200"  Background="{StaticResource MaterialDesignDarkBackground}">
+            <StackPanel>
+                <TextBlock Name="NameTextBox" Text="" IsHitTestVisible="False" FontSize="20" FontWeight="Heavy" Margin="0,0,0,5"/>
+                <TextBlock  Name="ArtistTextBox"  Text="" IsHitTestVisible="False" FontSize="15" FontWeight="Heavy" Margin="0,0,0,10"/>
+                <TextBlock Name="CreatorTextBox" Text="" IsHitTestVisible="False" TextWrapping="Wrap" Margin="0,0,0,10"/>
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                    <Button Name="DislikeTabButton" IsHitTestVisible="False" Opacity="0"  Click="RateTabButton_Click" Tag="0"  Width="20" Height="20" HorizontalAlignment="Center" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" >
+                        <materialDesign:PackIcon Name="DislikeButton"  Kind="ThumbsDownOutline"  Width="20" Height="20" Foreground="Black"/>
+                    </Button>
+                    <Button Name="LikeTabButton" IsHitTestVisible="False" Opacity="0" Click="RateTabButton_Click" Tag="100"  HorizontalAlignment="Center" Width="20" Height="20"  Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" >
+                        <materialDesign:PackIcon Name="LikeButton" Kind="ThumbsUpOutline"  Width="20" Height="20" Foreground="Black"/>
+                    </Button>
+                    <TextBlock Name="RatingTextBox" IsHitTestVisible="False"  Text="" TextWrapping="Wrap" Margin="10,0,0,0" />
+                    
+                </StackPanel>
+                <TextBlock Name="DownloadLinkTextBox" IsHitTestVisible="False" HorizontalAlignment="Left"  Text="" TextWrapping="Wrap" Margin="0,0,0,10"/>
+                <Button Name="DownloadButton" Click="DownloadTab_Click"  IsHitTestVisible="False" Opacity="0" Content="Download" Margin="0,0,0,10"/>
+
+                <TextBlock  Name="ReturnTextDisplay" IsHitTestVisible="False"  Text="" TextWrapping="Wrap" VerticalAlignment="Top" Margin="0,0,0,10" Width="120" Grid.Column="2" Foreground="Green"/>
+                <Button Name="AddToFavouritesButton" Click="AddToFavouritesButton_Click" IsHitTestVisible="False" Opacity="0" Content="Add to Favourites" Margin="0,0,0,10"/>
+            </StackPanel>
+        </Border>
     </Grid>
 </Page>

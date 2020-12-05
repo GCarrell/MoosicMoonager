@@ -28,10 +28,11 @@ namespace MusicManager_GUI
 
         private void ButtonUserLogIn(object sender, RoutedEventArgs e)
         {
-            var loginResult = crudManager.Login(UserNameTextInput.Text as string, PasswordTextInput.Text as string);
+            var loginResult = crudManager.Login(UserNameTextInput.Text as string, PasswordTextInput.Password as string);
             if (loginResult.passOrFail == "pass")
             {
-                ReturnMessageTextbox.Text += loginResult.returnMessage;
+                ReturnMessageTextbox.Foreground = Brushes.Green;
+                ReturnMessageTextbox.Text = loginResult.returnMessage;
 
                 var window = (MainWindow)Application.Current.MainWindow;
                 window.FavouritesPageButton.Opacity = 1;
@@ -47,19 +48,22 @@ namespace MusicManager_GUI
             }
             else
             {
+                ReturnMessageTextbox.Foreground = Brushes.Red;
                 ReturnMessageTextbox.Text = loginResult.returnMessage;
             }
         }
         private void ButtonUserCreate(object sender, RoutedEventArgs e)
         {
-            var creationResult = crudManager.AddUser(UserNameTextInput.Text as string, PasswordTextInput.Text as string);
+            var creationResult = crudManager.AddUser(UserNameTextInput.Text as string, PasswordTextInput.Password as string);
             if (creationResult.passOrFail == "pass")
             {
+                ReturnMessageTextbox.Foreground = Brushes.Green;
                 ReturnMessageTextbox.Text = creationResult.returnMessage + " ";
                 ButtonUserLogIn(sender, e);
             }
             else
             {
+                ReturnMessageTextbox.Foreground = Brushes.Red;
                 ReturnMessageTextbox.Text = creationResult.returnMessage;
             }
         }

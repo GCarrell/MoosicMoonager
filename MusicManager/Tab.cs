@@ -25,7 +25,7 @@ namespace MusicManager
         public virtual ICollection<Rating> Ratings { get; set; }
         public override string ToString()
         {
-            return $"{TabName} {Instrument}";
+            return $"{TabName} - {BandName}";
         }
     }
 }

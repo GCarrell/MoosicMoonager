@@ -30,7 +30,10 @@ namespace MusicManager_GUI.Pages
         private void CreateAccountButton_Click(object sender, RoutedEventArgs e)
         {
             var addTabResult = crudManager.AddTab(TabNameTextInput.Text, ArtistTextInput.Text, InstrumentTextInput.Text, DownloadLinkTextInput.Text, crudManager.User);
+
+            ReturnMessageTextbox.Foreground = addTabResult.passOrFail == "fail" ? Brushes.Red : Brushes.Green;
             ReturnMessageTextbox.Text = addTabResult.returnMessage;
         }
+        
     }
 }

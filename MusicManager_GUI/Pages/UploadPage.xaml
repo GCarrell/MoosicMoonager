@@ -5,8 +5,15 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:MusicManager_GUI.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="600"
-      Title="UploadPage" Background="{StaticResource MaterialDesignDarkBackground}">
+      d:DesignHeight="450" d:DesignWidth="450"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"        
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+      Title="UploadPage">
 
     <Grid>
         <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
@@ -14,20 +21,18 @@
 
                 <Border Padding="15,15,15,15" Width="400" CornerRadius="10" Background="{StaticResource MaterialDesignLightBackground}">
                     <StackPanel>
-                        <TextBox IsReadOnly="True" Text="Upload" FontSize="20" FontWeight="Heavy" Margin="0,0,0,10"/>
-                        <TextBox IsReadOnly="True" Name="ReturnMessageTextbox" Text="" FontSize="15"  Margin="0,0,0,0" Foreground="Red"/>
-                        <TextBox IsReadOnly="True" Text="Tab Name" FontSize="15" FontWeight="Light" Margin="0,0,0,10"/>
+                        <TextBlock  IsHitTestVisible="False" Text="Upload" FontSize="20" FontWeight="Heavy" Margin="0,0,0,0"/>
+                        <TextBlock  IsHitTestVisible="False" Name="ReturnMessageTextbox" Text="" FontSize="15"  Margin="0,0,0,0" Foreground="Red"/>
+                        <TextBlock IsHitTestVisible="False" Text="Tab Name" FontSize="15" FontWeight="Light" Margin="0,0,0,0"/>
                         <TextBox Name="TabNameTextInput" BorderThickness="0.1" Margin="0,0,0,5" BorderBrush="{StaticResource MaterialDesignLightForeground}" Text=""/>
-                        <TextBox IsReadOnly="True" Text="Artist" FontSize="15" FontWeight="Light" Margin="0,0,0,10"/>
+                        <TextBlock IsHitTestVisible="False" Text="Artist" FontSize="15" FontWeight="Light" Margin="0,0,0,0"/>
                         <TextBox Name="ArtistTextInput" BorderThickness="0.1" BorderBrush="{StaticResource MaterialDesignLightForeground}" Margin="0,0,0,5"/>
-                        <TextBox IsReadOnly="True" Text="Instrument" FontSize="15" FontWeight="Light" Margin="0,0,0,10"/>
+                        <TextBlock IsHitTestVisible="False" Text="Instrument" FontSize="15" FontWeight="Light" Margin="0,0,0,0"/>
                         <TextBox Name="InstrumentTextInput" BorderThickness="0.1" BorderBrush="{StaticResource MaterialDesignLightForeground}" Margin="0,0,0,5"/>
-                        <TextBox IsReadOnly="True" Text="Download Link" FontSize="15" FontWeight="Light" Margin="0,0,0,10"/>
+                        <TextBlock IsHitTestVisible="False" Text="Download Link" FontSize="15" FontWeight="Light" Margin="0,0,0,0"/>
                         <TextBox Name="DownloadLinkTextInput" BorderThickness="0.1" BorderBrush="{StaticResource MaterialDesignLightForeground}" Margin="0,0,0,5"/>
                         <Button Name="UploadTabButton" Content="Upload Tab" Click="CreateAccountButton_Click"/>
                     </StackPanel>
-
-
                 </Border>
             </StackPanel>
         </ScrollViewer>

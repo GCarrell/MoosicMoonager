@@ -13,32 +13,59 @@
         TextOptions.TextRenderingMode="Auto"        
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
-        Title="MainWindow" Height="450" Width="600" WindowStyle="None" WindowStartupLocation="CenterScreen" ResizeMode="CanResizeWithGrip" AllowsTransparency="True" >
+        Title="MainWindow" Height="440" Width="600" WindowStyle="None" WindowStartupLocation="CenterScreen"  AllowsTransparency="True" >
 
     <Grid>
         <Grid VerticalAlignment="Top" Height="30">
-            <Button x:Name="CloseWindow" HorizontalAlignment="Right" Width="20" Height="20"  Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Center" Click="CloseWindow_Click">
-                <materialDesign:PackIcon Kind="Power" Width="20" Height="20" Foreground="White"/>
+            <Button x:Name="CloseWindow" HorizontalAlignment="Right" Width="20" Height="20" Margin="0,0,5,0" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Center" Click="CloseWindow_Click">
+                <materialDesign:PackIcon Kind="Power"  Width="20" Height="20" Foreground="White"/>
             </Button>
-            <Button x:Name="WindowMinus" HorizontalAlignment="Left" Width="20" Height="20"  Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Click="WindowMinus_Click">
+            <Button x:Name="WindowMinus" HorizontalAlignment="Left" Width="20" Height="20"  Margin="5,0,0,0" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Background="{x:Null}" BorderBrush="{x:Null}" Click="WindowMinus_Click">
                 <materialDesign:PackIcon Kind="Minus" Width="20" Height="20" Foreground="White"/>
             </Button>
         </Grid>
-        <Grid Margin="0,20,0,0">
+        <Grid Margin="0,30,0,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0.5*"/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <StackPanel>
-                <Button Name="LoginPageButton" Content="Login/Create Account"  Click="ChangePage"/>
-                <Button Name="TabPageButton" Content="Tabs" Click="ChangePage"/>
-                <Button Name="FavouritesPageButton" Click="ChangePage" Content="Favourites" IsHitTestVisible="False" Opacity="0.5"/>
-                <Button Name="UploadPageButton" Click="ChangePage" Content="Upload" IsHitTestVisible="False" Opacity="0.5"/>
-                <Button Name="AccountPageButton" Click="ChangePage" Content="Account" IsHitTestVisible="False" Opacity="0.5"/>
+            <StackPanel Grid.Column="0" >
+
+
+                <Button Name="LoginPageButton" Click="ChangePage"  FontSize="11" HorizontalContentAlignment="Left" Background="{DynamicResource MaterialDesignPaper}" BorderBrush="{DynamicResource MaterialDesignPaper}" Style="{DynamicResource MaterialDesignToolForegroundButton}">
+                    <DockPanel LastChildFill="True">
+                        <materialDesign:PackIcon Name="LoginPageButtonStyle" Kind="AccountKeyOutline"  VerticalAlignment="Center" Margin="0,0,5,0" Foreground="White"/>
+                        <TextBlock Text="Login" TextWrapping="Wrap" VerticalAlignment="Center" Foreground="White"/>
+                    </DockPanel>
+                </Button>
+                <Button Name="TabPageButton" Click="ChangePage" HorizontalContentAlignment="Left" FontSize="11" Background="{DynamicResource MaterialDesignPaper}" BorderBrush="{DynamicResource MaterialDesignPaper}" Style="{DynamicResource MaterialDesignToolForegroundButton}">
+                    <DockPanel LastChildFill="True">
+                        <materialDesign:PackIcon Name="TabPageButtonStyle" Kind="FileMusic"  VerticalAlignment="Center" Margin="0,0,5,0" Foreground="White"/>
+                        <TextBlock Text="Tabs" TextWrapping="Wrap" VerticalAlignment="Center" Foreground="White"/>
+                    </DockPanel>
+                </Button>
+                <Button Name="FavouritesPageButton" Click="ChangePage" HorizontalContentAlignment="Left" IsHitTestVisible="False" Opacity="0.5" FontSize="11" Background="{DynamicResource MaterialDesignPaper}" BorderBrush="{DynamicResource MaterialDesignPaper}" Style="{DynamicResource MaterialDesignToolForegroundButton}">
+                    <DockPanel LastChildFill="True">
+                        <materialDesign:PackIcon Name="FavouritesPageButtonStyle" Kind="StarBorder"  VerticalAlignment="Center" Margin="0,0,5,0" Foreground="White"/>
+                        <TextBlock Text="Favourites" TextWrapping="Wrap" VerticalAlignment="Center" Foreground="White"/>
+                    </DockPanel>
+                </Button>
+                <Button Name="UploadPageButton" Click="ChangePage" IsHitTestVisible="False" HorizontalContentAlignment="Left" Opacity="0.5" FontSize="11" Background="{DynamicResource MaterialDesignPaper}" BorderBrush="{DynamicResource MaterialDesignPaper}" Style="{DynamicResource MaterialDesignToolForegroundButton}">
+                    <DockPanel LastChildFill="True">
+                        <materialDesign:PackIcon Name="UploadPageButtonStyle" Kind="UploadOutline"  VerticalAlignment="Center" Margin="0,0,5,0" Foreground="White"/>
+                        <TextBlock Text="Upload"  VerticalAlignment="Center" Foreground="White"/>
+                    </DockPanel>
+                </Button>
+                <Button Name="AccountPageButton" Click="ChangePage" IsHitTestVisible="False" HorizontalContentAlignment="Left" Opacity="0.5" FontSize="11" Background="{DynamicResource MaterialDesignPaper}" BorderBrush="{DynamicResource MaterialDesignPaper}" Style="{DynamicResource MaterialDesignToolForegroundButton}">
+                    <DockPanel LastChildFill="True" HorizontalAlignment="Left" >
+                        <materialDesign:PackIcon Name="AccountPageButtonStyle" Kind="AccountOutline"  VerticalAlignment="Center" Margin="0,0,5,0" Foreground="White"/>
+                        <TextBlock Text="Account"  VerticalAlignment="Center" Foreground="White"/>
+                    </DockPanel>
+                </Button>
             </StackPanel>
-            <Frame Name="PageDisplayFrame" Source="LandingPage" Grid.Column="1" Grid.ColumnSpan="3" NavigationUIVisibility="Hidden"/>
+            <Frame Name="PageDisplayFrame" Source="LandingPage" Grid.Column="1" Grid.ColumnSpan="4" NavigationUIVisibility="Hidden"/>
         </Grid>
     </Grid>
 </Window>
