@@ -12,7 +12,7 @@
         TextElement.FontSize="13"
         TextOptions.TextFormattingMode="Ideal" 
         TextOptions.TextRenderingMode="Auto"        
-        Background="{DynamicResource MaterialDesignPaper}"
+        Background="{DynamicResource MaterialDesignDarkSeparatorBackground}"
         FontFamily="{DynamicResource MaterialDesignFont}"
       Title="AccountPage" >
 
@@ -21,15 +21,16 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
-            <StackPanel Grid.Column="0" Margin="10,10,10,10">
-                <TextBlock  IsHitTestVisible="False" Text="Your Favourites" FontSize="20" FontWeight="Heavy" Margin="0,0,0,0"/>
+        <TextBlock  IsHitTestVisible="False" Text="Your Favourites" FontSize="20" FontWeight="Heavy" Margin="10,10,0,0"/>
+        <ScrollViewer VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Auto" Margin="10,40,10,10">
+            <StackPanel Grid.Column="0" >
+
 
                 <ListBox Name="UserFavouriteList"  SelectionChanged="TabList_SelectionChanged"></ListBox>
             </StackPanel>
         </ScrollViewer>
 
-        <Border Grid.Column="1" Margin="0,10,5,10" Padding="15,0,15,15" Width="200"  Background="{StaticResource MaterialDesignDarkBackground}">
+        <Border Grid.Column="1" Margin="0,10,5,10" Padding="15,0,15,15" Width="200"  Background="{StaticResource MaterialDesignDarkSeparatorBackground}">
             <StackPanel>
                 <TextBlock Name="NameTextBox" IsHitTestVisible="False" Text="" FontSize="20" FontWeight="Heavy" Margin="0,0,0,0"/>
                 <TextBlock  Name="ArtistTextBox"  IsHitTestVisible="False" Text="" FontSize="15" FontWeight="Heavy" Margin="0,0,0,10"/>

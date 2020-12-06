@@ -11,9 +11,9 @@
         TextElement.FontSize="13"
         TextOptions.TextFormattingMode="Ideal" 
         TextOptions.TextRenderingMode="Auto"        
-        Background="{DynamicResource MaterialDesignPaper}"
+        Background="{DynamicResource MaterialDesignDarkBackground}"
         FontFamily="{DynamicResource MaterialDesignFont}"
-        Title="MainWindow" Height="440" Width="600" WindowStyle="None" WindowStartupLocation="CenterScreen"  AllowsTransparency="True" >
+        Title="MainWindow" Height="440" Width="600" WindowStyle="None" AllowsTransparency="True" WindowStartupLocation="CenterScreen" >
 
     <Grid>
         <Grid VerticalAlignment="Top" Height="30">

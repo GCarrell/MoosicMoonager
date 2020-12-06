@@ -15,7 +15,7 @@
         FontFamily="{DynamicResource MaterialDesignFont}"
       Title="UploadPage">
 
-    <Grid>
+    <Grid Background="{StaticResource MaterialDesignDarkSeparatorBackground}">
         <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
             <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" TextBlock.TextAlignment="Center">
 
