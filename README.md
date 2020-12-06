@@ -79,3 +79,42 @@ At the end of the third sprint I had successfully completed all the sprint goals
 #### Sprint End
 ![](Sprint3End.png)
 
+### Sprint 4
+#### Sprint Review
+This sprint added a key feature to the application, the ability to rate a tab and view its rating. Validation was added to prevent a user from liking/disliking a tab twice. Tab ratings can be viewed on the landing page however the assosciated tests for checking the average method is functioning properly were not added.
+
+#### Sprint Retrospective
+Despite almost all sprint goals being completed most of the time during this sprint was spent on tasks that were not on the Kanban board such as general GUI improvements that left little time to finish the alotted tasks. I have mixed feelings on this as the sprint backlog tasks had the highest priority, however they were very strongly related to the GUI, and at the start of the sprint the GUI was poor. 
+
+### Goals
+- [x] Like/Dislike feature
+- [x] Users Tab ratings visible
+- [ ] See tab rating on landing page - partially complete
+- [x] Readme updated
+- [x] git commit
+
+#### Sprint Start
+![](Sprint4Start.png)
+
+#### Sprint End
+![](Sprint4End.png)
+
+
+### Sprint 5
+#### Sprint Review
+Sprint 5 added a lot of behind-the-scenes restrictions to the way the user can interact with the program, it prevented users that are not loggen in from interacting with the like/dislike/favourite buttons, it removed these buttons from view when a tab isn't selected so that the program wouldn't be passed a null object, a huge GUI overhaul ocurred, giving the program a much more professional look. 
+#### Sprint Retrospective
+In terms of planning the sprint backlog, I knew a lot of the day would be portioned off to GUI design, it's hard to know how long it can take as challenging problems pop up sporadically. After a very long sprint I believe the program is at least 95% complete, all key functionality has been added and the GUI has improved immensely. One feature I wanted to add  was for the corresponding like/dislike button to be already filled if you have previously rated the tab.
+### Goals
+- [x] Must be logged in to like tabs
+- [x] Ability to delete tabs
+- [x] Ability to remove favourites
+- [x] GUI improvements
+- [x] Readme updated
+- [x] git commit
+
+#### Sprint Start
+![](Sprint5Start.png)
+
+#### Sprint End
+![](Sprint5End.png)
