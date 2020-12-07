@@ -44,9 +44,10 @@
 
                 </StackPanel>
                 <TextBlock Name="DownloadLinkTextBox" IsHitTestVisible="False" HorizontalAlignment="Left"  Text="" TextWrapping="Wrap" />
-                <TextBlock Name="ReturnTextDisplay"  IsHitTestVisible="False" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Column="2" Foreground="Green"/>
                 <Button Name="DownloadButton" Click="DownloadTab_Click"  IsHitTestVisible="False" Opacity="0" Content="Download" Margin="0,0,0,10"/>
                 <Button Name="DeleteTabButton" Click="DeleteTabButton_Click" Opacity="0" Content="Delete Tab" Margin="0,0,0,10"/>
+                <TextBlock Name="ReturnTextDisplay"  IsHitTestVisible="False" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Column="2" Foreground="Green"/>
+
             </StackPanel>
         </Border>
     </Grid>

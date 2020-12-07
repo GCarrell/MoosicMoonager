@@ -199,7 +199,7 @@ namespace MusicManagerBusiness
             }
             if (String.IsNullOrEmpty(instrument))
             {
-                return ("Tab name field cannot be empty.", "fail");
+                return ("Instrument field cannot be empty.", "fail");
             }
             if (String.IsNullOrEmpty(tabUrl))
             {

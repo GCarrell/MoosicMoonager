@@ -51,8 +51,9 @@
                 <TextBlock Name="DownloadLinkTextBox" IsHitTestVisible="False" HorizontalAlignment="Left"  Text="" TextWrapping="Wrap" Margin="0,0,0,10"/>
                 <Button Name="DownloadButton" Click="DownloadTab_Click"  IsHitTestVisible="False" Opacity="0" Content="Download" Margin="0,0,0,10"/>
 
-                <TextBlock  Name="ReturnTextDisplay" IsHitTestVisible="False"  Text="" TextWrapping="Wrap" VerticalAlignment="Top" Margin="0,0,0,10" Width="120" Grid.Column="2" Foreground="Green"/>
                 <Button Name="AddToFavouritesButton" Click="AddToFavouritesButton_Click" IsHitTestVisible="False" Opacity="0" Content="Add to Favourites" Margin="0,0,0,10"/>
+                <TextBlock  Name="ReturnTextDisplay" IsHitTestVisible="False"  Text="" TextWrapping="Wrap" VerticalAlignment="Top" Margin="0,0,0,10" Width="120" Grid.Column="2" Foreground="Green"/>
+
             </StackPanel>
         </Border>
     </Grid>
